@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed Moustafa Mohamed - Cybersecurity Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0b1120;
+      color: #e5e7eb;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* -------- Grid background + floating particles -------- */
+    .grid-bg::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(0,255,128,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,255,0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridMove 40s linear infinite;
+      z-index: -2;
+    }
+    @keyframes gridMove {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 400px 400px, 400px 400px; }
+    }
+
+    .node {
+      position: fixed;
+      width: 8px; height: 8px;
+      background-color: rgba(0,255,128,0.4);
+      border-radius: 50%;
+      animation: float 20s infinite ease-in-out;
+      z-index: -1;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(-40px); opacity: 1; }
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0.75rem;
+      transition: 0.3s;
+    }
+
+    .section-fade-in { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+    .section-fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    .section-divider { width: 6rem; height: 0.25rem; background: linear-gradient(90deg,#00ffff,#00ff88); margin: 1rem auto 3rem; border-radius:9999px; }
+
+    /* Light mode overrides */
+    body.light { background-color: #f9fafb; color: #111827; }
+    body.light .glass { background: rgba(255,255,255,0.8); border-color: rgba(0,0,0,0.1); }
+    body.light .text-white { color: #111827 !important; }
+    body.light .text-gray-300 { color: #374151 !important; }
+    body.light .text-green-400 { color: #10b981 !important; }
+  </style>
+</head>
+<body class="grid-bg antialiased">
+
+  <!-- floating nodes -->
+  <div class="node" style="top:20%;left:15%;animation-duration:18s;"></div>
+  <div class="node" style="top:55%;left:70%;animation-duration:25s;"></div>
+  <div class="node" style="top:40%;left:45%;animation-duration:22s;"></div>
+  <div class="node" style="bottom:10%;left:30%;animation-duration:28s;"></div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 glass">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#home" class="text-xl font-bold text-white hover:text-green-400 transition">Ahmed Moustafa Mohamed</a>
+      <div class="flex items-center">
+        <nav class="hidden md:flex space-x-6 text-gray-300">
+          <a href="#summary" class="hover:text-green-400">Summary</a>
+          <a href="#education" class="hover:text-green-400">Education</a>
+          <a href="#experience" class="hover:text-green-400">Experience</a>
+          <a href="#skills" class="hover:text-green-400">Skills</a>
+          <a href="#courses" class="hover:text-green-400">Courses</a>
+          <a href="#certifications" class="hover:text-green-400">Certifications</a>
+          <a href="#contact" class="hover:text-green-400">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="p-2 ml-4 rounded-full text-gray-300 hover:text-green-400">
+          <svg id="theme-toggle-dark-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646A9 9 0 0012 21c3.978 0 7.374-2.643 8.354-5.646z"/></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex flex-col md:flex-row justify-center items-center gap-10 py-32 section-fade-in text-center md:text-left">
+    <div class="md:w-1/2 md:ml-12">
+      <h1 class="text-5xl md:text-6xl font-bold text-white">Ahmed Moustafa Mohamed</h1>
+      <h2 class="text-3xl md:text-4xl font-bold text-green-400 mt-3">Cybersecurity Student | Red Team & Bug Bounty Enthusiast</h2>
+      <div class="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+        <a href="Ahmed's CV.pdf" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition">View My CV</a>
+        <a href="https://www.linkedin.com/in/ahmed-moustafa-7b77472a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition">LinkedIn</a>
+      </div>
+    </div>
+    <div class="md:w-1/2 flex justify-center">
+      <img src="ahmed.jpeg" alt="Ahmed Moustafa Mohamed" class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-green-500 shadow-lg">
+    </div>
+  </section>
+
+  <!-- Summary -->
+ <section id="summary" class="py-32 section-fade-in">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-white mb-6">Summary</h2>
+    <div class="section-divider"></div>
+    <p class="text-lg text-gray-300 leading-relaxed text-justify px-6 md:px-0">
+     I am a motivated cybersecurity student focused on <span class="text-green-400">Red Team operations</span> and <span class="text-green-400">Bug Bounty hunting</span>.
+      Continuously self‑teaching and sharpening practical skills in penetration testing, vulnerability analysis,
+      Linux, and network tools, I actively pursue hands‑on experience and real‑world projects to contribute effectively to 
+     offensive security initiatives.
+    </p>
+  </div>
+</section>
+
+  <!-- Education -->
+  <section id="education" class="py-32 section-fade-in">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-white mb-6">Education</h2>
+      <div class="section-divider"></div>
+
+      <div class="glass p-10 md:p-12 leading-relaxed">
+        <h3 class="text-2xl font-bold text-green-400 mb-2">Faculty of Computer and Data Science</h3>
+        <p class="text-gray-300">Alexandria University – Sep 2023 to Jun 2027</p>
+        <ul class="list-disc pl-6 text-left text-gray-400 mt-2 space-y-1">
+          <li>Major in Cybersecurity</li>
+          <li>GPA 3.415 / 4.0</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Experience -->
+  <section id="experience" class="py-32 section-fade-in">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-white mb-6">Work Experience</h2>
+      <div class="section-divider"></div>
+      <div class="glass p-10 md:p-12 leading-relaxed">
+        <h3 class="text-2xl font-bold text-green-400">Social Media Director | Enjaz.360</h3>
+        <p class="text-gray-400 mb-3">Jun 2025 – Apr 2025</p>
+        <ul class="list-disc pl-6 text-left text-gray-300 space-y-2">
+          <li><em>Managed social media strategy and presence</em></li>
+          <li>Supported tech‑focused web projects</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-36 section-fade-in">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-white mb-6">Skills</h2>
+      <div class="section-divider"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-24">
+        <div class="glass p-10 md:p-12 text-[0.95rem] leading-relaxed break-words overflow-hidden">
+          <h3 class="text-2xl font-semibold text-green-400 mb-4">Technical Skills</h3>
+          <ul class="list-disc pl-6 text-left text-gray-300 space-y-2">
+            <li>Network Troubleshooting and Configuration</li>
+            <li>Firewall and VPN setup & management</li>
+            <li>Java programming | Object‑Oriented design | Bash Scripting</li>
+            <li>Data Cleaning and Visualization</li>
+            <li>Ticketing Systems | Professional email communication</li>
+          </ul>
+        </div>
+
+        <div class="glass p-10 md:p-12 text-[0.95rem] leading-relaxed break-words overflow-hidden">
+          <h3 class="text-2xl font-semibold text-green-400 mb-4">Professional Skills</h3>
+          <ul class="list-disc pl-6 text-left text-gray-300 space-y-2">
+            <li>Teamwork | Collaboration | Clear Communication</li>
+            <li>Fast Learning & Adaptability</li>
+            <li>Analytical Mindset & Critical Thinking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses" class="py-36 section-fade-in">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-white mb-6">Courses</h2>
+      <div class="section-divider"></div>
+
+      <div class="space-y-8">
+        <div class="glass p-8">
+          <h3 class="text-2xl font-semibold text-green-400 mb-2">Cisco Introduction to Cybersecurity (Apr 2025)</h3>
+          <ul class="list-disc pl-6 text-left text-gray-300 space-y-2">
+            <li>Covers core cybersecurity concepts – threats, attacks, defense strategies.</li>
+            <li>Introduces security principles, confidentiality, integrity, availability models.</li>
+          </ul>
+        </div>
+
+        <div class="glass p-8">
+          <h3 class="text-2xl font-semibold text-green-400 mb-2">Cisco NDG Linux Essentials (Jun 2025)</h3>
+          <ul class="list-disc pl-6 text-left text-gray-300 space-y-2">
+            <li>Explores Linux system administration and network configuration.</li>
+            <li>Builds practical skills in troubleshooting and service management.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="py-36 section-fade-in">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold text-center text-white mb-6">Certifications</h2>
+      <div class="section-divider"></div>
+
+      <div class="flex flex-col gap-8">
+        <div class="glass p-8 text-left">
+          <h3 class="text-2xl font-semibold text-green-400 mb-1">Certified Ethical Hacker – Mahara Tech (Sep 2025)</h3>
+          <ul class="list-disc pl-6 text-gray-300 space-y-1">
+            <li>Focuses on ethical hacking methodologies: reconnaissance, scanning, exploitation, and reporting.</li>
+            <li>Hands‑on experience with penetration testing tools and vulnerability assessment.</li>
+          </ul>
+        </div>
+
+        <div class="glass p-8 text-left">
+          <h3 class="text-2xl font-semibold text-green-400 mb-1">
+            Cyber Security Academy – National Telecommunication Institute (NTI) with EG‑CERT & NTRA (Aug – Oct 2025)
+          </h3>
+          <ul class="list-disc pl-6 text-gray-300 space-y-1">
+            <li>Trained in vulnerability assessment, penetration testing & cloud security auditing using Nessus, Kali, ScoutSuite.</li>
+            <li>Applied WordPress security and threat analysis via Splunk, Wireshark, WPScan.</li>
+            <li>Completed freelance cybersecurity projects and developed communication skills.</li>
+          </ul>
+        </div>
+
+        <div class="glass p-8 text-left">
+          <h3 class="text-2xl font-semibold text-green-400 mb-1">CCNA 200‑301 (Sep 2025 – Present)</h3>
+          <ul class="list-disc pl-6 text-gray-300 space-y-1">
+            <li>Covers network fundamentals, routing & switching concepts, IP addressing.</li>
+            <li>Provides hands‑on knowledge in VLANs, network security, infrastructure design.</li>
+          </ul>
+        </div>
+
+        <div class="glass p-8 text-left">
+          <h3 class="text-2xl font-semibold text-green-400 mb-1">EJPT v2 – Udemy Netriders (Sep 2025 – Present)</h3>
+                      <ul class="list-disc pl-6 text-gray-300 space-y-1">
+              <li>Practical penetration testing focusing on real world scenarios.</li>
+              <li>Develops hands‑on skills in scanning, exploitation, privilege escalation, and post‑exploitation.</li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section id="languages" class="py-36 section-fade-in">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-white mb-6">Languages</h2>
+      <div class="section-divider"></div>
+      <p class="text-lg text-gray-300">
+        <span class="text-green-400 font-semibold">Arabic:</span> Native Speaker  |  
+        <span class="text-green-400 font-semibold">English:</span> B2 – Certified by Cambridge and British Council
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-36 section-fade-in text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold text-white mb-6">Get In Touch</h2>
+      <div class="section-divider"></div>
+      <p class="text-gray-300 text-lg mb-8">
+        Interested in offensive security projects or cybersecurity collaborations? Let’s connect!
+      </p>
+      <div class="space-y-4">
+        <p class="text-xl font-mono p-4 rounded-lg glass text-green-400">a7medmoustafa27@gmail.com</p>
+        <p class="text-xl font-mono p-4 rounded-lg glass text-green-400">(+20) 101 414 3289</p>
+        <p class="text-xl font-mono p-4 rounded-lg glass text-green-400">Alexandria, Egypt</p>
+      </div>
+      <div class="flex justify-center space-x-6 mt-8">
+        <a href="https://www.linkedin.com/in/ahmed-moustafa-7b77472a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-gray-400 hover:text-cyan-400 transition" title="LinkedIn">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M5.005 6.575a1.55 1.55 0 11-.003-3.1 1.55 1.55 0 01.003 3.1zm-1.47 1.34h2.94v8.6H3.535v-8.6zm5.48 0h2.56v1.17h.04c.36-.68 1.23-1.39 2.53-1.39 2.7 0 3.2 1.78 3.2 4.09v4.72h-2.67v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H9.015v-8.59z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 border-t border-gray-800">
+    <div class="container mx-auto px-6 py-8">
+      <p class="text-center text-gray-500">&copy; 2025 Ahmed Moustafa Mohamed – All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const body=document.body;
+    const darkIcon=document.getElementById("theme-toggle-dark-icon");
+    const lightIcon=document.getElementById("theme-toggle-light-icon");
+    const toggle=document.getElementById("theme-toggle");
+
+    function setTheme(t){
+      if(t==="light"){
+        body.classList.add("light");
+        darkIcon.classList.add("hidden");
+        lightIcon.classList.remove("hidden");
+      } else {
+        body.classList.remove("light");
+        darkIcon.classList.remove("hidden");
+        lightIcon.classList.add("hidden");
+      }
+    }
+
+    // Apply saved or system preference
+    const savedTheme=localStorage.getItem("theme");
+    const prefersDark=window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const startTheme=savedTheme||(prefersDark?"dark":"light");
+    setTheme(startTheme);
+
+    // Toggle button listener
+    toggle.addEventListener("click",()=>{
+      const newTheme=body.classList.contains("light")?"dark":"light";
+      setTheme(newTheme);
+      localStorage.setItem("theme",newTheme);
+    });
+
+    // Section fade-in observer
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add("visible"); }
+      });
+    },{threshold:0.1});
+    document.querySelectorAll(".section-fade-in").forEach(s=>observer.observe(s));
+  </script>
+
+</body>
+</html>
