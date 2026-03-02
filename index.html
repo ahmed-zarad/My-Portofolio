@@ -14,6 +14,10 @@
       overflow-x: hidden;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
+    .glass:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 255, 128, 0.2);
+    }
 
     /* -------- Grid background + floating particles -------- */
     .grid-bg::before {
@@ -66,6 +70,31 @@
     body.light .text-green-400 { color: #10b981 !important; }
   </style>
 </head>
+<!-- Modal -->
+<div id="projectModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+  <div class="glass p-10 max-w-md text-center">
+    <h3 class="text-2xl font-bold text-green-400 mb-4">🚧 Project Under Development</h3>
+    <p class="text-gray-300 mb-6">
+      The ROAD exploitation project is currently in progress.
+      A full technical report and walkthrough will be published soon.
+    </p>
+    <button onclick="closeModal()"
+      class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-lg">
+      Close
+    </button>
+  </div>
+</div>
+
+<script>
+function openModal(){
+  document.getElementById("projectModal").classList.remove("hidden");
+  document.getElementById("projectModal").classList.add("flex");
+}
+function closeModal(){
+  document.getElementById("projectModal").classList.add("hidden");
+  document.getElementById("projectModal").classList.remove("flex");
+}
+</script>
 <body class="grid-bg antialiased">
 
   <!-- floating nodes -->
@@ -83,6 +112,7 @@
           <a href="#summary" class="hover:text-green-400">Summary</a>
           <a href="#education" class="hover:text-green-400">Education</a>
           <a href="#experience" class="hover:text-green-400">Experience</a>
+          <a href="#projects" class="hover:text-green-400">Projects</a>
           <a href="#skills" class="hover:text-green-400">Skills</a>
           <a href="#courses" class="hover:text-green-400">Courses</a>
           <a href="#certifications" class="hover:text-green-400">Certifications</a>
@@ -157,6 +187,115 @@
       </div>
     </div>
   </section>
+
+  <!-- Projects -->
+<section id="projects" class="py-36 section-fade-in">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-4xl font-bold text-center text-white mb-6">Projects</h2>
+    <div class="section-divider"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Project Card 1 -->
+  <div class="glass p-8 flex flex-col justify-between">
+  <div>
+    <h3 class="text-2xl font-semibold text-green-400 mb-3">
+      Full XSS Exploitation on DVWA
+    </h3>
+
+    <p class="text-gray-300 mb-4">
+      Conducted a complete Cross-Site Scripting (XSS) attack simulation on DVWA (Damn Vulnerable Web Application).
+      Successfully exploited Reflected, Stored, and DOM-based XSS vulnerabilities,
+      demonstrating payload crafting, session hijacking concepts, and client-side attack impact.
+    </p>
+
+    <p class="text-sm text-cyan-400 mb-2">
+      Environment: DVWA (Low, Medium & High Security Levels)
+    </p>
+
+    <p class="text-sm text-cyan-400 mb-4">
+      Tools: Kali Linux, Burp Suite, Browser DevTools
+    </p>
+  </div>
+
+  <a href="https://drive.google.com/file/d/1owdq8OYztZJ719ev_L4rc0B8Km9VwC1z/view?usp=drive_link" target="_blank"
+     class="mt-4 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg text-center transition">
+    View Project
+  </a>
+</div>
+
+      <!-- Project Card 2 -->
+<div class="glass p-8 flex flex-col justify-between">
+  <div>
+    <h3 class="text-2xl font-semibold text-green-400 mb-3">
+      Windows 7 Full Compromise & Privilege Escalation (Multi-Network Lab)
+    </h3>
+
+    <p class="text-gray-300 mb-4">
+      Performed a full exploitation attack against a vulnerable Windows 7 machine
+      across two segmented networks. Gained initial access through network enumeration
+      and vulnerability exploitation, followed by privilege escalation to obtain
+      SYSTEM-level access.
+    </p>
+
+    <p class="text-gray-300 mb-4">
+      Conducted internal pivoting between networks, post-exploitation enumeration,
+      credential harvesting concepts, and persistence techniques in a controlled lab environment.
+    </p>
+
+    <p class="text-sm text-cyan-400 mb-2">
+      Techniques: Enumeration, Exploitation, Privilege Escalation
+    </p>
+
+    <p class="text-sm text-cyan-400 mb-4">
+      Tools: Nmap, Metasploit, Netcat, Mimikatz (Lab Use), Kali Linux
+    </p>
+  </div>
+
+  <a href="https://drive.google.com/file/d/1bEH-g7h4wb8B9oiFXMGqYovo1s8Eozf2/view?usp=sharing" target="_blank"
+     class="mt-4 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg text-center transition">
+    View Project
+  </a>
+</div>
+<!-- Project Card 3 -->
+<div class="glass p-8 flex flex-col justify-between">
+  <div>
+    <h3 class="text-2xl font-semibold text-green-400 mb-3">
+      DEPI Graduation Project – Full Web Exploitation (ROAD Server)
+    </h3>
+
+    <p class="text-gray-300 mb-4">
+      Ongoing team-based graduation project focused on performing a full exploitation
+      assessment on the "ROAD" web server. The objective is to simulate real-world
+      offensive security methodologies from reconnaissance to post-exploitation.
+    </p>
+
+    <p class="text-gray-300 mb-4">
+      The project includes vulnerability discovery, exploitation chaining,
+      privilege escalation, lateral movement concepts, and comprehensive
+      professional reporting.
+    </p>
+
+    <p class="text-sm text-cyan-400 mb-2">
+      Focus Areas: Web Exploitation, Attack Surface Analysis, Privilege Escalation
+    </p>
+
+    <p class="text-sm text-cyan-400 mb-4">
+      Tools: Nmap, Burp Suite, Gobuster, Metasploit, Linux Enumeration Tools
+    </p>
+  </div>
+
+ <button onclick="openModal()"
+   class="mt-4 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg text-center transition">
+   View Details
+</button>
+</div>
+
+  
+
+    </div>
+  </div>
+</section>
 
   <!-- Skills -->
   <section id="skills" class="py-36 section-fade-in">
@@ -281,7 +420,7 @@
       </p>
       <div class="space-y-4">
         <p class="text-xl font-mono p-4 rounded-lg glass text-green-400">a7medmoustafa27@gmail.com</p>
-        <p class="text-xl font-mono p-4 rounded-lg glass text-green-400">(+20) 101 414 3289</p>
+        <p class="text-xl font-mono p-4 rounded-lg glass text-green-400">(+20) 101 413 3289</p>
         <p class="text-xl font-mono p-4 rounded-lg glass text-green-400">Alexandria, Egypt</p>
       </div>
       <div class="flex justify-center space-x-6 mt-8">
